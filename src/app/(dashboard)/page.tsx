@@ -57,7 +57,7 @@ interface StatsCardInterface {
   icon: ReactNode;
 }
 
-function StatsCard({ 
+export function StatsCard({ 
   title, 
   value, 
   helperText, 
