@@ -131,8 +131,8 @@ const Designer = () => {
 }
 
 function DesignerElementWrapper({ element } : { element : FormElementInstance }) {
-    const { removeElement, selectedElement, setSelectedElement } = useDesigner();
-    const [mouseOver, setMouseOver] = useState<Boolean>(false);
+    const { removeElement, setSelectedElement } = useDesigner();
+    const [mouseOver, setMouseOver] = useState<boolean>(false);
     const topHalf = useDraggable({
         id: element.id + "-top",
         data : {

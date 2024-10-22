@@ -18,7 +18,7 @@ import Confetti from "react-confetti";
 
 const FormBuilder = ({form} : {form : Form}) => {
     const { setElements, setSelectedElement } = useDesigner();
-    const [isReady, setIsReady] = useState<Boolean>(false);
+    const [isReady, setIsReady] = useState<boolean>(false);
 
     const mouseSensor = useSensor(MouseSensor, {
         activationConstraint: {

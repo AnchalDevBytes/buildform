@@ -54,7 +54,13 @@ const FormSubmitComponent = ({
             await SubmitForm(formUrl, jsonContent);
             setSubmitted(true);
         } catch (error) {
-            toast.error("Something went wrong")
+            if (error instanceof Error) { 
+                console.error(error);
+                toast.error(error.message || "Something went wrong");
+            } else {
+                console.error("Unexpected error:", error);
+                toast.error("Something went wrong");
+            }
         }
     };
 

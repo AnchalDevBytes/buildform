@@ -27,8 +27,8 @@ export default function Home() {
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
         <CreateFormBtn/>
         <Suspense
-          fallback={[1,2,3,4].map((el) => (
-            <FormCardSkeleton/>
+          fallback={[1,2,3,4].map((_, index) => (
+            <FormCardSkeleton key={index}/>
           ))}
         >
           <FormCards/>
@@ -98,7 +98,7 @@ function StatsCards(props : StatsCardsProps) {
         title="Total Visits"
         icon={<LuView className='text-blue-600'/>}
         helperText='All time form visits'
-        value={data?.visits.toLocaleString() || ""}
+        value={data?.visits.toLocaleString() ?? "0"}
         loading={loading}
         className='shadow-md shadow-blue-600'
       />

@@ -11,11 +11,11 @@ import {
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle 
-} from './ui/alert-dialog'
-import { FaIcons, FaSpinner } from 'react-icons/fa'
-import { toast } from 'react-toastify'
-import { PublishForm } from '../../actions/form'
-import { useRouter } from 'next/navigation'
+} from './ui/alert-dialog';
+import { FaSpinner } from 'react-icons/fa';
+import { toast } from 'react-toastify';
+import { PublishForm } from '../../actions/form';
+import { useRouter } from 'next/navigation';
 
 const PublishFormBtn = ({ id } : { id: number }) => {
   const [loading, startTransition] = useTransition();

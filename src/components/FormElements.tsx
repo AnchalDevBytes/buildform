@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { CheckboxFieldFormElement } from "./fields/CheckboxField";
 import { DateFieldFormElement } from "./fields/DateField";
 import { NumberFieldFormElement } from "./fields/NumberField";
@@ -54,7 +55,12 @@ export type FormElement = {
 export type FormElementInstance = {
     id: string;
     type: ElementsType;
-    extraAttributes?: Record<string, any>
+    extraAttributes?: {
+        title?: string;
+        text?: string;
+        children? : ReactNode;
+        [key : string] : ReactNode | string | number | boolean | undefined;
+    }
 }
 
 type FormElementsType = {

@@ -123,8 +123,8 @@ async function SubmissionsTable({ id } : { id: number }) {
       case "CheckboxField" :
         columns.push({
           id: element.id,
-          label: element.extraAttributes?.label,
-          required: element.extraAttributes?.required,
+          label: element.extraAttributes?.label as string,
+          required: element.extraAttributes?.required as boolean,
           type: element.type
         });
         break;
