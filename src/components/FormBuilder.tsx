@@ -17,7 +17,7 @@ import { BsArrowRight } from 'react-icons/bs';
 import Confetti from "react-confetti";
 
 const FormBuilder = ({form} : {form : Form}) => {
-    const { setElements } = useDesigner();
+    const { setElements, setSelectedElement } = useDesigner();
     const [isReady, setIsReady] = useState<Boolean>(false);
 
     const mouseSensor = useSensor(MouseSensor, {
@@ -36,11 +36,14 @@ const FormBuilder = ({form} : {form : Form}) => {
     const sensors = useSensors(mouseSensor, touchSensor);
 
     useEffect(() => {
+        if(isReady) return;
         const elements = JSON.parse(form.content);
         setElements(elements);
+        setSelectedElement(null);
+        setIsReady(true);
         const readyTimeout = setTimeout(() => setIsReady(true), 500);
         return () => clearTimeout(readyTimeout);
-    },[form, setElements]);
+    },[form, setElements, isReady, setSelectedElement]);
 
     if(!isReady) {
         return (

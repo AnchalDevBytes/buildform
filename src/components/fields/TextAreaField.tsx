@@ -18,14 +18,17 @@ import {
 } from "@/components/ui/form";
 import { Switch } from "../ui/switch";
 import { cn } from "@/lib/utils";
+import { BsTextareaResize } from "react-icons/bs";
+import { Textarea } from "../ui/textarea";
 
-const type : ElementsType = "TextFields";
+const type : ElementsType = "TextAreaField";
 
 const extraAttributes = {
-    label: "Text field",
+    label: "Text area",
     helperText : "Helper Text",
     required: false,
     placeHolder: "value here...",
+    rows: 3,
 }
 
 const propertiesSchema = z.object({
@@ -33,9 +36,10 @@ const propertiesSchema = z.object({
     helperText: z.string().max(200),
     required: z.boolean().default(false),
     placeHolder: z.string().max(50),
+    rows: z.number().min(1).max(10),
 });
 
-export const TextFieldFormElement: FormElement = {
+export const TextAreaFieldFormElement: FormElement = {
     type,
     construct: (id : string) => ({
         id,
@@ -43,8 +47,8 @@ export const TextFieldFormElement: FormElement = {
         extraAttributes,
     }),
     designerBtnElement: {
-        icon : MdTextFields,
-        label: "Text Field",
+        icon : BsTextareaResize,
+        label: "TextArea Field",
     },
     designerComponent : DesignerComponent,
     formComponent: FormComponent,
@@ -67,7 +71,7 @@ type CustomInstance = FormElementInstance & {
 
 function DesignerComponent({ elementInstance } : { elementInstance : FormElementInstance }) {
     const element = elementInstance as CustomInstance;
-    const { label, required, placeHolder, helperText } = element.extraAttributes;
+    const { label, required, placeHolder, helperText, rows } = element.extraAttributes;
 
     return (
         <div className="flex flex-col gap-2 w-full">
@@ -75,7 +79,7 @@ function DesignerComponent({ elementInstance } : { elementInstance : FormElement
                 {label}
                 {required && "*"}
             </Label>
-            <Input readOnly disabled placeholder={placeHolder} />
+            <Textarea readOnly disabled placeholder={placeHolder} />
             {helperText && (
                 <p className="text-muted-foreground text-[0.8rem]">{helperText}</p>
             )}
@@ -118,7 +122,7 @@ function FormComponent({
                 onChange={(e) => setValue(e.target.value)}
                 onBlur={(e) => {
                     if(!submitValue) return;
-                    const valid = TextFieldFormElement.validate(element, e.target.value);
+                    const valid = TextAreaFieldFormElement.validate(element, e.target.value);
                     setError(!valid);
                     if(!valid) return;
                     submitValue(element.id, e.target.value)
