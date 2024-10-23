@@ -27,6 +27,10 @@ export async function GetFormStats() {
                 submissions : true
             }
         })
+
+        if(!stats) {
+            throw new Error("Failed to retrieve form statistics");
+        }
     
         const visits = stats._sum.visits || 0;
         const submissions = stats._sum.submissions || 0;
@@ -43,8 +47,12 @@ export async function GetFormStats() {
             visits, submissions, submissionRate, bounceRate
         }
     } catch (error) {
-        console.error("Error in GetFormStats:", error);
-        throw new Error('Failed to retrieve form statistics');
+        if(error instanceof Error) {
+            console.error("Error in GetFormStats: ", error.message);
+            throw new Error(error.message);
+        } else {
+            throw new Error('Failed to retrieve form statistics');
+        }
     }
 }
 

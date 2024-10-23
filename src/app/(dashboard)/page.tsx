@@ -15,6 +15,8 @@ import Link from 'next/link';
 import { BiRightArrowAlt } from "react-icons/bi";
 import { formatDistance } from "date-fns";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <div className='container pt-4'>
@@ -39,8 +41,19 @@ export default function Home() {
 }
 
 async function CardStatsWrapper() {
-  const stats = await GetFormStats();
-  return <StatsCards loading={false} data={stats}/>
+  try {
+    const stats = await GetFormStats();
+    if(!stats) {
+      return <StatsCards loading={true}/>
+    }
+    return <StatsCards loading={false} data={stats} />
+  } catch (error) {
+    if (error instanceof Error) {
+      return <div>{error.message}</div>;
+    } else {
+      return <div>Something went wrong while getting form stats</div>;
+    }
+  }
 }
 
 interface StatsCardsProps {
@@ -135,14 +148,25 @@ function FormCardSkeleton() {
 }
 
 async function FormCards() {
-  const forms = await GetForms();
-  return (
-    <>
-      {forms.map(form => (
-          <FormCard key={form.id} form={form}/>
-        ))}
-    </>
-  )
+  try {
+    const forms = await GetForms();
+    if(!forms) {
+      return <div>No forms found</div>;
+    }
+    return (
+      <>
+        {forms.map(form => (
+            <FormCard key={form.id} form={form}/>
+          ))}
+      </>
+    );
+  } catch (error) {
+    if (error instanceof Error) {
+      return <div>{error.message}</div>;
+    } else {
+      return <div>Something went wrong while getting forms from FromCards</div>;
+    }
+  }
 }
 
 function FormCard({ form } : { form : Form }) {
