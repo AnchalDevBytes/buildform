@@ -19,12 +19,12 @@ export const dynamic = "force-dynamic";
 
 export default function Home() {
   return (
-    <div className='container pt-4'>
+    <div className='container pt-4 items-center flex flex-col mx-auto'>
       <Suspense fallback={<StatsCards loading={true}/>}>
         <CardStatsWrapper/>
       </Suspense>
       <Separator className='my-6'/>
-      <h2 className='text-4xl font-bold col-span-2'>Your Form</h2>
+      <h2 className='text-4xl font-bold tracking-widest col-span-2'>Your Form</h2>
       <Separator className='my-6'/>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
         <CreateFormBtn/>
@@ -79,26 +79,31 @@ export function StatsCard({
   icon 
 } : StatsCardInterface) {
   return (
-    <Card className={className}>
-      <CardHeader className='flex flex-row items-center justify-center pb-2'>
-        <CardTitle className='text-sm font-medium text-muted-foreground'>
-          {title}
-        </CardTitle>
-        {icon}
-      </CardHeader>
-      <CardContent>
-        <div className='text-2xl font-bold'>
-          {
-            loading && 
-            (<Skeleton>
-              <span className='opacity-0'>0</span>
-            </Skeleton>)
-          }
-          {!loading && value}
-        </div>
-        <p className='text-xs text-muted-foreground pt-1'>{helperText}</p>
-      </CardContent>
-    </Card>
+    <div className={`relative p-1 rounded-lg ${className}`}>
+      <div className="absolute inset-0 bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 rounded-lg blur-sm opacity-75 animate-border" />
+      <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-md">
+        <Card>
+          <CardHeader className='flex flex-row items-center gap-2 justify-center pb-2'>
+            <CardTitle className='text-sm tracking-wider font-medium text-muted-foreground'>
+              {title}
+            </CardTitle>
+            {icon}
+          </CardHeader>
+          <CardContent>
+            <div className='text-2xl font-bold'>
+              {
+                loading && 
+                (<Skeleton>
+                  <span className='opacity-0'>0</span>
+                </Skeleton>)
+              }
+              {!loading && value}
+            </div>
+            <p className='text-xs text-muted-foreground pt-1'>{helperText}</p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
 )
 }
 
@@ -109,27 +114,27 @@ function StatsCards(props : StatsCardsProps) {
     <div className='w-full pt-8 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
       <StatsCard 
         title="Total Visits"
-        icon={<LuView className='text-blue-600'/>}
+        icon={<LuView className='text-green-600'/>}
         helperText='All time form visits'
         value={data?.visits.toLocaleString() ?? "0"}
         loading={loading}
-        className='shadow-md shadow-blue-600'
+        className=''
       />
       <StatsCard 
         title="Total Submissions"
-        icon={<FaWpforms className='text-yellow-600'/>}
+        icon={<FaWpforms className='text-green-300'/>}
         helperText='All time form submissions'
         value={data?.submissions.toLocaleString() || ""}
         loading={loading}
-        className='shadow-md shadow-yellow-600'
+        className=''
       />
       <StatsCard 
         title="Submission rate"
-        icon={<HiCursorClick className='text-green-600'/>}
+        icon={<HiCursorClick className='text-red-300'/>}
         helperText='Visits the result in form submission'
         value={data?.submissionRate.toLocaleString() + "%" || ""}
         loading={loading}
-        className='shadow-md shadow-green-600'
+        className=''
       />
       <StatsCard 
         title="Bounce rate"
@@ -137,7 +142,7 @@ function StatsCards(props : StatsCardsProps) {
         helperText='Visits that leaves without interaction'
         value={data?.bounceRate.toLocaleString() + "%" || ""}
         loading={loading}
-        className='shadow-md shadow-red-600'
+        className=''
       />
     </div>
   )
@@ -171,10 +176,10 @@ async function FormCards() {
 
 function FormCard({ form } : { form : Form }) {
   return (
-    <Card>
+    <Card className='shadow-md shadow-red-100'>
       <CardHeader>
         <CardTitle className='flex items-center gap-2 justify-between'>
-          <span className='truncate font-bold'>{form.name}</span>
+          <span className='truncate text-base tracking-wide font-bold'>{form.name}</span>
           {form.published && <Badge>Published</Badge>}
           {!form.published && <Badge variant={"destructive"}>Draft</Badge>}
         </CardTitle>

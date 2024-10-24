@@ -39,14 +39,14 @@ const FormDetailPage = async ({ params } : { params: {id: string }}) => {
     const bounceRate = 100 - submissionRate;
 
   return (
-    <>
-      <div className='py-10 border-b border-muted'>
+    <div className='flex flex-col items-center w-full mx-auto px-2'>
+      <div className='py-10 border-b border-muted flex items-center justify-center w-full'>
         <div className='flex justify-between container'>
-          <h1 className='text-4xl font-bold truncate'>{form.name}</h1>
+          <h1 className='text-4xl font-bold truncate tracking-wider'>{form.name}</h1>
           <VisitBtn shareUrl={form.shareUrl} />
         </div>
       </div>
-      <div className='py-4 border-b border-muted'>
+      <div className='py-4 border-b border-muted flex items-center justify-center w-full'>
         <div className='container flex gap-2 items-center justify-between'>
           <FormLinkShare shareUrl={form.shareUrl}/>
         </div>
@@ -54,27 +54,27 @@ const FormDetailPage = async ({ params } : { params: {id: string }}) => {
       <div className='w-full pt-8 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 container'>
         <StatsCard 
         title="Total Visits"
-        icon={<LuView className='text-blue-600'/>}
+        icon={<LuView className='text-green-600'/>}
         helperText='All time form visits'
         value={visits.toLocaleString() || ""}
         loading={false}
-        className='shadow-md shadow-blue-600'
+        className=''
       />
       <StatsCard 
         title="Total Submissions"
-        icon={<FaWpforms className='text-yellow-600'/>}
+        icon={<FaWpforms className='text-green-300'/>}
         helperText='All time form submissions'
         value={submissions.toLocaleString() || ""}
         loading={false}
-        className='shadow-md shadow-yellow-600'
+        className=''
       />
       <StatsCard 
         title="Submission rate"
-        icon={<HiCursorClick className='text-green-600'/>}
+        icon={<HiCursorClick className='text-red-300'/>}
         helperText='Visits the result in form submission'
         value={submissionRate.toLocaleString() + "%" || ""}
         loading={false}
-        className='shadow-md shadow-green-600'
+        className=''
       />
       <StatsCard 
         title="Bounce rate"
@@ -82,13 +82,13 @@ const FormDetailPage = async ({ params } : { params: {id: string }}) => {
         helperText='Visits that leaves without interaction'
         value={bounceRate.toLocaleString() + "%" || ""}
         loading={false}
-        className='shadow-md shadow-red-600'
+        className=''
       />
       </div>
       <div className='container pt-10'>
         <SubmissionsTable id={form.id} />
       </div>
-    </>
+    </div>
   )
 }
 
