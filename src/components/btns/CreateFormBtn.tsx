@@ -23,11 +23,11 @@ import { useForm } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { ImSpinner2 } from "react-icons/im";
-import { formSchema, formSchemaType } from '../../models/formTypes';
 import { toast } from 'react-toastify';
-import { CreateForm } from '../../actions/form';
 import { BsFileEarmarkPlus } from "react-icons/bs";
 import { useRouter } from 'next/navigation';
+import { formSchema, formSchemaType } from '../../../models/formTypes';
+import { CreateForm } from '../../../actions/form';
 
 const CreateFormBtn = () => {
     const router = useRouter();
@@ -113,4 +113,4 @@ const CreateFormBtn = () => {
   )
 }
 
-export default CreateFormBtn
+export default CreateFormBtn;

@@ -1,20 +1,20 @@
 "use client";
 import { Form } from '@prisma/client'
 import React, { useEffect, useState } from 'react'
-import PreviewDialogeBtn from './PreviewDialogeBtn';
-import SaveFormBtn from './SaveFormBtn';
-import PublishFormBtn from './PublishFormBtn';
 import Designer from '@/components/Designer';
 import { DndContext, MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';
-import DragOverlayWrapper from './DragOverlayWrapper';
+import DragOverlayWrapper from '@/components/DragOverlayWrapper';
 import useDesigner from '@/hooks/useDesigner';
 import { ImSpinner } from 'react-icons/im';
-import { Input } from './ui/input';
-import { Button } from './ui/button';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
 import { BsArrowRight } from 'react-icons/bs';
 import Confetti from "react-confetti";
+import PreviewDialogeBtn from '@/components/btns/PreviewDialogeBtn';
+import SaveFormBtn from '@/components/btns/SaveFormBtn';
+import PublishFormBtn from '@/components/btns/PublishFormBtn';
 
 const FormBuilder = ({form} : {form : Form}) => {
     const { setElements, setSelectedElement } = useDesigner();

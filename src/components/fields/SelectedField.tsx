@@ -1,8 +1,8 @@
 "use client";
 import { RxDropdownMenu } from "react-icons/rx";
-import { ElementsType, FormElement, FormElementInstance, SubmitFunction } from "../FormElements";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
+import { ElementsType, FormElement, FormElementInstance, SubmitFunction } from "@/components/FormElements";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,11 +16,11 @@ import {
     FormItem,
     FormLabel,
 } from "@/components/ui/form";
-import { Switch } from "../ui/switch";
+import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
-import { Separator } from "../ui/separator";
-import { Button } from "../ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 import { AiOutlineClose, AiOutlinePlus } from "react-icons/ai";
 import { toast } from "react-toastify";
 

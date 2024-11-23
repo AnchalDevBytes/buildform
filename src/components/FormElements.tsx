@@ -1,15 +1,15 @@
 import { ReactNode } from "react";
-import { CheckboxFieldFormElement } from "./fields/CheckboxField";
-import { DateFieldFormElement } from "./fields/DateField";
-import { NumberFieldFormElement } from "./fields/NumberField";
-import { ParagraphFieldFormElement } from "./fields/ParagraphField";
-import { SelectedFieldFormElement } from "./fields/SelectedField";
-import { SeparatorFieldFormElement } from "./fields/SeparatorField";
-import { SpacerFieldFormElement } from "./fields/SpacerField";
-import { SubTitleFieldFormElement } from "./fields/SubTitleField";
-import { TextAreaFieldFormElement } from "./fields/TextAreaField";
-import { TextFieldFormElement } from "./fields/TextFields";
-import { TitleFieldFormElement } from "./fields/TitleField";
+import { CheckboxFieldFormElement } from "@/components/fields/CheckboxField";
+import { DateFieldFormElement } from "@/components/fields/DateField";
+import { NumberFieldFormElement } from "@/components/fields/NumberField";
+import { ParagraphFieldFormElement } from "@/components/fields/ParagraphField";
+import { SelectedFieldFormElement } from "@/components/fields/SelectedField";
+import { SeparatorFieldFormElement } from "@/components/fields/SeparatorField";
+import { SpacerFieldFormElement } from "@/components/fields/SpacerField";
+import { SubTitleFieldFormElement } from "@/components/fields/SubTitleField";
+import { TextAreaFieldFormElement } from "@/components/fields/TextAreaField";
+import { TextFieldFormElement } from "@/components/fields/TextFields";
+import { TitleFieldFormElement } from "@/components/fields/TitleField";
 
 export type ElementsType = 
     "TextFields" |

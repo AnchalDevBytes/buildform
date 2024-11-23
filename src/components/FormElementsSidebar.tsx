@@ -1,7 +1,7 @@
 import React from 'react'
-import SidebarBtnElement from './SidebarBtnElement';
-import { FormElements } from './FormElements';
-import { Separator } from './ui/separator';
+import SidebarBtnElement from '@/components/SidebarBtnElement';
+import { FormElements } from '@/components/FormElements';
+import { Separator } from '@/components/ui/separator';
 
 const FormElementsSidebar = () => {
   return (

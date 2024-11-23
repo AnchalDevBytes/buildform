@@ -1,8 +1,8 @@
 "use client";
 import { IoMdCheckbox } from "react-icons/io";
-import { ElementsType, FormElement, FormElementInstance, SubmitFunction } from "../FormElements";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
+import { ElementsType, FormElement, FormElementInstance, SubmitFunction } from "@/components/FormElements";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

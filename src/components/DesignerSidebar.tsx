@@ -1,7 +1,7 @@
 import React from 'react'
 import useDesigner from '@/hooks/useDesigner';
-import FormElementsSidebar from './FormElementsSidebar';
-import PropertiesFormSidebar from './PropertiesFormSidebar';
+import FormElementsSidebar from '@/components/FormElementsSidebar';
+import PropertiesFormSidebar from '@/components/PropertiesFormSidebar';
 
 const DesignerSidebar = () => {
 

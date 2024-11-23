@@ -1,7 +1,7 @@
 "use client";
-import { ElementsType, FormElement, FormElementInstance, SubmitFunction } from "../FormElements";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
+import { ElementsType, FormElement, FormElementInstance, SubmitFunction } from "@/components/FormElements";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,15 +15,15 @@ import {
     FormItem,
     FormLabel,
 } from "@/components/ui/form";
-import { Switch } from "../ui/switch";
+import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 import { BsFillCalendarDateFill } from "react-icons/bs";
 import { Button } from "../ui/button";
 import { CalendarIcon } from "@radix-ui/react-icons";
-import { Popover, PopoverTrigger } from "../ui/popover";
+import { Popover, PopoverTrigger } from "@/components/ui/popover";
 import { format } from "util";
 import { PopoverContent } from "@radix-ui/react-popover";
-import { Calendar } from "../ui/calendar";
+import { Calendar } from "@/components/ui/calendar";
 
 const type : ElementsType = "DateField";
 

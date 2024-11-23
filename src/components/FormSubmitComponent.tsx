@@ -1,7 +1,7 @@
 "use client";  
 import React, { useCallback, useRef, useState, useTransition } from 'react'
-import { FormElementInstance, FormElements } from './FormElements';
-import { Button } from './ui/button';
+import { FormElementInstance, FormElements } from '@/components/FormElements';
+import { Button } from '@/components/ui/button';
 import { HiCursorClick } from 'react-icons/hi';
 import { toast } from 'react-toastify';
 import { SubmitForm } from '../../actions/form';

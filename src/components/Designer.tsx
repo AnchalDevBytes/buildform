@@ -3,10 +3,10 @@ import DesignerSidebar from '@/components/DesignerSidebar';
 import { DragEndEvent, useDndMonitor, useDraggable, useDroppable } from "@dnd-kit/core";
 import { cn } from '@/lib/utils';
 import useDesigner from '@/hooks/useDesigner';
-import { ElementsType, FormElementInstance, FormElements } from './FormElements';
+import { ElementsType, FormElementInstance, FormElements } from '@/components/FormElements';
 import { idGenerator } from '@/lib/idGenerator';
 import { BiSolidTrash } from 'react-icons/bi';
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
 
 const Designer = () => {
     const { elements, addElement, selectedElement, setSelectedElement, removeElement } = useDesigner();

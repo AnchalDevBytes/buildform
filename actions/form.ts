@@ -9,7 +9,7 @@ async function getCurrentUserOrThrow () {
     const user = await currentUser();
     if(!user) {
         console.error("User not found");
-        throw new UserNotFoundErr();
+        throw new UserNotFoundErr("please signup or signin to create your form");
     }
     return user;
 }

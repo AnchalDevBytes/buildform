@@ -1,7 +1,7 @@
 "use client";
-import { ElementsType, FormElement, FormElementInstance } from "../FormElements";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
+import { ElementsType, FormElement, FormElementInstance } from "@/components/FormElements";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

@@ -1,7 +1,7 @@
 "use client";
-import { ElementsType, FormElement, FormElementInstance, SubmitFunction } from "../FormElements";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
+import { ElementsType, FormElement, FormElementInstance, SubmitFunction } from "@/components/FormElements";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,10 +15,10 @@ import {
     FormItem,
     FormLabel,
 } from "@/components/ui/form";
-import { Switch } from "../ui/switch";
+import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 import { BsTextareaResize } from "react-icons/bs";
-import { Textarea } from "../ui/textarea";
+import { Textarea } from "@/components/ui/textarea";
 
 const type : ElementsType = "TextAreaField";
 

@@ -1,6 +1,6 @@
 "use client";
-import { ElementsType, FormElement, FormElementInstance } from "../FormElements";
-import { Label } from "../ui/label";
+import { ElementsType, FormElement, FormElementInstance } from "@/components/FormElements";
+import { Label } from "@/components/ui/label";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,7 +15,7 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { BsTextParagraph } from "react-icons/bs";
-import { Textarea } from "../ui/textarea";
+import { Textarea } from "@/components/ui/textarea";
 
 const type : ElementsType = "ParagraphField";
 

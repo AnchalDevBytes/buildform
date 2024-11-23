@@ -1,9 +1,9 @@
 import useDesigner from '@/hooks/useDesigner';
 import React from 'react'
-import { FormElements } from './FormElements';
-import { Button } from './ui/button';
+import { FormElements } from '@/components/FormElements';
+import { Button } from '@/components/ui/button';
 import { AiOutlineClose } from 'react-icons/ai'
-import { Separator } from './ui/separator';
+import { Separator } from '@/components/ui/separator';
 
 const PropertiesFormSidebar = () => {
     const { selectedElement, setSelectedElement } = useDesigner();

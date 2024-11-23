@@ -1,5 +1,4 @@
 import React, { useTransition } from 'react'
-import { Button } from './ui/button'
 import { MdOutlinePublish } from 'react-icons/md'
 import { 
     AlertDialog, 
@@ -11,11 +10,12 @@ import {
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle 
-} from './ui/alert-dialog';
+} from '@/components/ui/alert-dialog';
 import { FaSpinner } from 'react-icons/fa';
 import { toast } from 'react-toastify';
-import { PublishForm } from '../../actions/form';
 import { useRouter } from 'next/navigation';
+import { PublishForm } from '../../../actions/form';
+import { Button } from '@/components/ui/button';
 
 const PublishFormBtn = ({ id } : { id: number }) => {
   const [loading, startTransition] = useTransition();
